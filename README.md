@@ -132,4 +132,4 @@ __pycache__/
 
 ## License
 
-MIT License — see `LICENSE` for details.
+Data Raccoons License — see `LICENSE` for details.
