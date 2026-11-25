@@ -1,13 +1,16 @@
 #!/bin/bash
 RADIUS_IP="${RADIUS_IP:-10.10.0.245}"
 RADIUS_PORT="${RADIUS_PORT:-1812}"
-RADIUS_SECRET="${RADIUS_SECRET:-geheim}"
 TIMEOUT="${TIMEOUT:-6}"
 COOLDOWN="${COOLDOWN:-15}"
 CONFIG_FILE="/etc/eapol_test/eap.conf"
 LOCK_FILE="/tmp/check_radius.lock"
 STATE_FILE="/tmp/check_radius.state"
-
+if [ -n "${RADIUS_SECRET_FILE:-}" ] && [ -r "$RADIUS_SECRET_FILE" ]; then
+  RADIUS_SECRET="$(tr -d '\r\n' < "$RADIUS_SECRET_FILE")"
+else
+  RADIUS_SECRET="${RADIUS_SECRET:-secret}"
+fi
 # Prevent concurrent double runs
 exec 200>"$LOCK_FILE"
 flock 200
