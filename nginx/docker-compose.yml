@@ -25,7 +25,7 @@ services:
       - radiusmon-python
     restart: always
     
-  radius-web:
+  radiusmon-python:
     container_name: radiusmon-python
     build:
       context: .
