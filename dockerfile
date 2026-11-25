@@ -16,6 +16,6 @@ RUN chmod 0555 /usr/local/bin/check_radius.sh /app/app.py
 
 USER 10001:10001
 
-EXPOSE 8082
+EXPOSE 80
 
-CMD ["gunicorn", "--workers", "2", "--bind", "0.0.0.0:8082", "--timeout", "20", "--max-requests", "1000", "--max-requests-jitter", "50", "app:app"]
+CMD ["gunicorn", "--workers", "2", "--bind", "0.0.0.0:80", "--timeout", "20", "--max-requests", "1000", "--max-requests-jitter", "50", "app:app"]
