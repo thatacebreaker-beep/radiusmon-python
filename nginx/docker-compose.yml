@@ -5,7 +5,7 @@ services:
     ports:
       - "8082:80"
     volumes:
-      #- /etc/nginx:/etc/nginx/conf.d:ro
+      #- /etc/nginx:/etc/nginx/conf.d:ro # test with local config files placed in /etc/nginx
     depends_on:
       - radiusmon-python
     restart: always
@@ -27,7 +27,7 @@ services:
       - ./eapol_conf:/etc/eapol_test/eap.conf:ro
     configs:
       - source: nginx.conf
-        target: /etc/nginx/conf.d/default.conf
+        target: /etc/nginx/conf.d/nginx.conf
         mode: 0444
       - source: ca_pem_config
         target: /etc/eapol_test/ca.pem
