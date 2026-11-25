@@ -13,7 +13,7 @@ services:
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=16m
     configs:
-      - source: nginx.conf
+      - source: nginx_conf
         target: /etc/nginx/conf.d/nginx.conf
         uid: "10001"
         gid: "10001"
