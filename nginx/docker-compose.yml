@@ -78,7 +78,7 @@ configs:
             # listen 443 ssl;
             # server_name radiusmon-python.domain.local;
 
-            # SSL Certificaten (Certbot paden binnen de container)
+            # SSL Certificaten
             # ssl_certificate /etc/ssl/radiusmon-python.domain.local/fullchain.pem;
             # ssl_certificate_key /etc/ssl/radiusmon-python.domain.local/privkey.pem;
 
