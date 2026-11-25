@@ -9,7 +9,7 @@ STATE_FILE="/tmp/check_radius.state"
 if [ -n "${RADIUS_SECRET_FILE:-}" ] && [ -r "$RADIUS_SECRET_FILE" ]; then
   RADIUS_SECRET="$(tr -d '\r\n' < "$RADIUS_SECRET_FILE")"
 else
-  RADIUS_SECRET="${RADIUS_SECRET:-secret}"
+  RADIUS_SECRET="${RADIUS_SECRET:-secret}" # text secret (not safe)
 fi
 # Prevent concurrent double runs
 exec 200>"$LOCK_FILE"
