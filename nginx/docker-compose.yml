@@ -2,12 +2,25 @@ services:
   nginx:
     image: nginx:stable-alpine
     container_name: radiusmon-nginx
-    ports:
-      - "8082:80"
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile    
+    user: "10001:10001"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
     configs:
       - source: nginx.conf
         target: /etc/nginx/conf.d/nginx.conf
-        mode: 0444      
+        uid: "10001"
+        gid: "10001"
+        mode: 0444
+    ports:
+      - "8082:80"
     depends_on:
       - radiusmon-python
     restart: always
@@ -73,7 +86,7 @@ configs:
   nginx_conf:
     content: |
         server {
-            listen 8082 http2;
+            listen 80 http2;
             # listen 443 ssl;
             # server_name radiusmon-python.domain.local;
 
