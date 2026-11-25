@@ -1,6 +1,6 @@
 services:
   radius-web:
-    container_name: python
+    container_name: radiusmon-python
     build:
       context: .
       dockerfile: Dockerfile
