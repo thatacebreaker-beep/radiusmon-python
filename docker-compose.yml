@@ -13,7 +13,7 @@ services:
     tmpfs:
       - /tmp:rw,noexec,nosuid,size=16m
     ports:
-      - "10.10.0.35:8082:8082"
+      - "8082:8082"
     volumes:
       - ./eapol_conf:/etc/eapol_test/eap.conf:ro
     configs:
