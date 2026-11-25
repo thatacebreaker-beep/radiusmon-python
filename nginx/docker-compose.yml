@@ -3,7 +3,7 @@ services:
     image: nginx:stable-alpine
     container_name: radiusmon-nginx
     ports:
-      - "10.10.0.35:8082:80"
+      - "8082:80"
     volumes:
       #- /etc/nginx:/etc/nginx/conf.d:ro
     depends_on:
