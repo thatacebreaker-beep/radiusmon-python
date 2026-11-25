@@ -1,0 +1,67 @@
+services:
+  radius-web:
+    container_name: python
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: "10001:10001"
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    ports:
+      - "10.10.0.35:8082:8082"
+    volumes:
+      - ./eapol_conf:/etc/eapol_test/eap.conf:ro
+    configs:
+      - source: ca_pem_config
+        target: /etc/eapol_test/ca.pem
+        uid: "10001"
+        gid: "10001"
+        mode: 0444
+      - source: computer_cert
+        target: /etc/eapol_test/computer.pem
+        uid: "10001"
+        gid: "10001"
+        mode: 0444
+    secrets:
+      - source: computer_key
+        target: /etc/eapol_test/computer.key
+        uid: "10001"
+        gid: "10001"
+        mode: 0400
+      - source: radius_secret
+        target: /run/secrets/radius_secret
+        uid: "10001"
+        gid: "10001"
+        mode: 0400
+    environment:
+      PYTHONUNBUFFERED: "1"
+      SCRIPT_PATH: /usr/local/bin/check_radius.sh
+      RADIUS_IP: "10.10.0.245"
+      RADIUS_PORT: "1812"
+      RADIUS_SECRET_FILE: /run/secrets/radius_secret
+      TIMEOUT: "6"
+      COOLDOWN: "15"
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0', timeout=5)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+configs:
+  ca_pem_config:
+    file: ./certs/ca.pem
+  computer_cert:
+    file: ./certs/computer.pem
+
+secrets:
+  computer_key:
+    file: ./certs/computer.key
+  radius_secret:
+    file: ./certs/radius_secret.txt
