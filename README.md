@@ -132,4 +132,4 @@ __pycache__/
 
 ## License
 
-Data Raccoons License — see `LICENSE` for details.
+Data Raccoons License — see...  `Nah its free for all` no further details.
