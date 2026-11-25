@@ -1,6 +1,5 @@
 services:
-  nginx:
-    image: nginx:stable-alpine
+  radiusmon-nginx:
     container_name: radiusmon-nginx
     build:
       context: ./nginx
