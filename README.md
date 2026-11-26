@@ -86,6 +86,7 @@ network={
     private_key="/etc/eapol_test/computer.key"
 }
 ```
+https://manpages.debian.org/testing/eapoltest/eapol_test.8.en.html
 
 ### 4. Configure Environment Variables
 Update the `environment` and `ports` sections in `docker-compose.yml` to match your environment:
