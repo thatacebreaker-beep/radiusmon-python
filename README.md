@@ -37,9 +37,9 @@ A lightweight, containerized synthetic monitoring dashboard and HTTP health-chec
 ## Prerequisites
 
 - Docker Engine & Docker Compose v2+
-- A valid **CA certificate** (`ca_chain.pem full chain of radius EAP-TLS CA`),
-- A valid **client/machine certificate** (`client.pem - EAP-TLS Authentication Certificate`),
-- A valid **private key** (`client.key - EAP-TLS Authentication PrivateKey`) trusted by your RADIUS server,
+- A valid **CA certificate** (`ca_chain.pem - full chain of radius EAP-TLS CA`),
+- A valid **client/machine certificate** (`client.pem - EAP-TLS Authentication Certificate`) Radius EAP-TLS Authentication,
+- A valid **private key** (`client.key - EAP-TLS Authentication PrivateKey`) Radius EAP-TLS Authentication,
 - Network access from the Docker host to your RADIUS server on UDP port `1812` (or custom port)
 - A matching RADIUS client entry configured on your RADIUS server with a shared secret
 
