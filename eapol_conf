@@ -3,8 +3,8 @@ network={
     key_mgmt=IEEE8021X
     eapol_flags=0
     eap=TLS
-    identity="host/pc01.domain.local"
+    identity="host/radiusmon-application"
     ca_cert="/etc/eapol_test/ca.pem"
-    client_cert="/etc/eapol_test/computer.pem"
-    private_key="/etc/eapol_test/computer.key"
+    client_cert="/etc/eapol_test/client.pem"
+    private_key="/etc/eapol_test/client.key"
 }

@@ -37,7 +37,7 @@ A lightweight, containerized synthetic monitoring dashboard and HTTP health-chec
 ## Prerequisites
 
 - Docker Engine & Docker Compose v2+
-- A valid **CA certificate** (`ca.pem`), **client/machine certificate** (`computer.pem`), and **private key** (`computer.key`) trusted by your RADIUS server
+- A valid **CA certificate** (`ca.pem`), **client/machine certificate** (`client.pem`), and **private key** (`client.key`) trusted by your RADIUS server
 - Network access from the Docker host to your RADIUS server on UDP port `1812` (or custom port)
 - A matching RADIUS client entry configured on your RADIUS server with a shared secret
 
@@ -60,13 +60,13 @@ chmod 700 certs
 
 # Add your PEM files and shared secret
 cp /path/to/ca.pem certs/ca.pem
-cp /path/to/computer.pem certs/computer.pem
-cp /path/to/computer.key certs/computer.key
+cp /path/to/client.pem certs/client.pem
+cp /path/to/client.key certs/client.key
 printf '%s' 'your-radius-shared-secret' > certs/radius_secret.txt
 
 # Lock down sensitive files
-chmod 644 certs/ca.pem certs/computer.pem
-chmod 600 certs/computer.key certs/radius_secret.txt
+chmod 644 certs/ca.pem certs/client.pem
+chmod 600 certs/client.key certs/radius_secret.txt
 ```
 
 > **Note:** Ensure `certs/` is listed in your `.gitignore` so private keys and secrets are never committed to version control.
@@ -80,10 +80,10 @@ network={
     key_mgmt=IEEE8021X
     eapol_flags=0
     eap=TLS
-    identity="host/pc01.domain.local"
+    identity="host/radiusmon-application"
     ca_cert="/etc/eapol_test/ca.pem"
-    client_cert="/etc/eapol_test/computer.pem"
-    private_key="/etc/eapol_test/computer.key"
+    client_cert="/etc/eapol_test/client.pem"
+    private_key="/etc/eapol_test/client.key"
 }
 ```
 https://manpages.debian.org/testing/eapoltest/eapol_test.8.en.html

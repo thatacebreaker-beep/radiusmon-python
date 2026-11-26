@@ -1,5 +1,5 @@
 services:
-  radius-web:
+  radiusmon-application:
     container_name: radiusmon-python
     build:
       context: .
@@ -22,14 +22,14 @@ services:
         uid: "10001"
         gid: "10001"
         mode: 0444
-      - source: computer_cert
-        target: /etc/eapol_test/computer.pem
+      - source: client_cert
+        target: /etc/eapol_test/client.pem
         uid: "10001"
         gid: "10001"
         mode: 0444
     secrets:
-      - source: computer_key
-        target: /etc/eapol_test/computer.key
+      - source: client_key
+        target: /etc/eapol_test/client.key
         uid: "10001"
         gid: "10001"
         mode: 0400
@@ -57,11 +57,11 @@ services:
 configs:
   ca_pem_config:
     file: ./certs/ca.pem
-  computer_cert:
-    file: ./certs/computer.pem
+  client_cert:
+    file: ./certs/client.pem
 
 secrets:
-  computer_key:
-    file: ./certs/computer.key
+  client_key:
+    file: ./certs/client.key
   radius_secret:
     file: ./certs/radius_secret.txt
