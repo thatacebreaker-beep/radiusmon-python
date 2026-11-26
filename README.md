@@ -98,7 +98,6 @@ Update the `environment` and `ports` sections in `docker-compose.yml` to match y
 | `RADIUS_SECRET_FILE` | `/run/secrets/radius_secret` | Path to the mounted RADIUS shared secret |
 | `TIMEOUT` | `6` | Maximum timeout (in seconds) for `eapol_test` |
 | `COOLDOWN` | `15` | Minimum interval (in seconds) between live RADIUS checks |
-| `SCRIPT_PATH` | `/usr/local/bin/check_radius.sh` | Path to the health-check runner script |
 
 ### 5. Build and Start
 ```bash
