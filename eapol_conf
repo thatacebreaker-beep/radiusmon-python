@@ -4,7 +4,7 @@ network={
     eapol_flags=0
     eap=TLS
     identity="host/radiusmon-application"
-    ca_cert="/etc/eapol_test/ca.pem"
+    ca_cert="/etc/eapol_test/ca_chain.pem"
     client_cert="/etc/eapol_test/client.pem"
     private_key="/etc/eapol_test/client.key"
 }
