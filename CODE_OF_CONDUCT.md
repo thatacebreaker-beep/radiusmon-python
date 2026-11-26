@@ -30,4 +30,4 @@ Community: [Raccoon-Cloud](https://raccoon-cloud.nl).
 
 ## Questions?
 
-If you have questions, please see . If that doesn't answer your questions, feel free to [contact us](mailto:ace@raccoonmail.nl).
+If you have questions, please feel free to [contact us](mailto:ace@raccoonmail.nl).
