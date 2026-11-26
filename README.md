@@ -1,5 +1,4 @@
 # RADIUS EAP-TLS Synthetic Health Check 
-# [Data Racoons]
 
 A lightweight, containerized synthetic monitoring dashboard and HTTP health-check endpoint for **RADIUS EAP-TLS** authentication. It uses `eapol_test` to perform real certificate-based 802.1X authentication transactions against a RADIUS server, caches results to prevent flooding, and exposes both a web UI and standard HTTP status codes (`200`, `503`, `500`) for uptime monitoring tools (e.g., Uptime Kuma, Prometheus Blackbox Exporter, PRTG, Loadbalancers, or Zabbix etc).
 
