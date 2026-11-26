@@ -59,13 +59,13 @@ mkdir -p certs
 chmod 700 certs
 
 # Add your PEM files and shared secret
-cp /path/to/ca.pem certs/ca.pem
+cp /path/to/ca_chain.pem certs/ca_chain.pem
 cp /path/to/client.pem certs/client.pem
 cp /path/to/client.key certs/client.key
 printf '%s' 'your-radius-shared-secret' > certs/radius_secret.txt
 
 # Lock down sensitive files
-chmod 644 certs/ca.pem certs/client.pem
+chmod 644 certs/ca_chain.pem certs/client.pem
 chmod 600 certs/client.key certs/radius_secret.txt
 ```
 
@@ -81,7 +81,7 @@ network={
     eapol_flags=0
     eap=TLS
     identity="host/radiusmon-application"
-    ca_cert="/etc/eapol_test/ca.pem"
+    ca_chain_cert="/etc/eapol_test/ca_chain.pem"
     client_cert="/etc/eapol_test/client.pem"
     private_key="/etc/eapol_test/client.key"
 }
