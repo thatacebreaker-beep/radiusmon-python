@@ -48,8 +48,8 @@ A lightweight, containerized synthetic monitoring dashboard and HTTP health-chec
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/thatacebreaker-beep/radiusmon-python.git
+cd /radiusmon-python
 ```
 
 ### 2. Prepare Certificates and Secrets
