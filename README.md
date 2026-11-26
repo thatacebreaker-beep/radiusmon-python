@@ -93,7 +93,7 @@ Update the `environment` and `ports` sections in `docker-compose.yml` to match y
 
 | Variable | Default | Description |
 | :--- | :--- | :--- |
-| `RADIUS_IP` | `192.168.0.1` | Target RADIUS server IP address (or hostnames, requires working DNS) |
+| `RADIUS_IP` | `192.168.0.1` | Target RADIUS server IP address (or hostnames, requires working DNS, compose added dns servers) |
 | `RADIUS_PORT` | `1812` | Target RADIUS authentication port (UDP) |
 | `RADIUS_SECRET_FILE` | `/run/secrets/radius_secret` | Path to the mounted RADIUS shared secret |
 | `TIMEOUT` | `6` | Maximum timeout (in seconds) for `eapol_test` |
